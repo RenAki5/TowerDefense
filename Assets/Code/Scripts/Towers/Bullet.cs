@@ -24,9 +24,12 @@ public class Bullet : MonoBehaviour
     //FixedUpdate is basically the same as Update, but called the same number of times per second, regardless of framerate
     private void FixedUpdate()
     {
-        //if there is no target, do nothing
-        if (!target) return;
-
+        //if there is no target, destroy bullet
+        if (!target)
+        {
+            Destroy(gameObject);
+            return;
+        }
         //get the direction towards current target enemy
         Vector2 direction = (target.position - transform.position).normalized;
         
