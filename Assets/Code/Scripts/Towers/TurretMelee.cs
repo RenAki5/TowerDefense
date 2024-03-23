@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using UnityEngine.UI;
+using Unity.VisualScripting;
 
 public class TurretMelee : MonoBehaviour
 {
@@ -10,31 +11,33 @@ public class TurretMelee : MonoBehaviour
     [Header("References")]
     [SerializeField] private Transform turretRotationPoint;     //rotation point for tower head
     [SerializeField] private LayerMask enemyMask;               //the enemy layer mask
-    [SerializeField] private GameObject bulletPrefab;           //prefab for tower's bullet
-    [SerializeField] private Transform firingPoint;             //firing point for bullets
     [SerializeField] private GameObject upgradeUI;              //upgrade UI menu
     [SerializeField] private Button upgradeButton;              //upgrade button
+    [SerializeField] private Rigidbody2D rb;                    //rigidbody for collision detection
 
     [Header("Attribute")]
     [SerializeField] private float targetingRange = 1f;         //tower range
     [SerializeField] private float rotationSpeed = 5f;          //tower rotation speed
-    [SerializeField] private float atkps = 1f;                  // Attacks Per Second
+    [SerializeField] private float atkps = 0.5f;                  // Attacks Per Second
     [SerializeField] private int baseUpgradeCost = 100;         //base cost to upgrade
+    [SerializeField] private int atkDamage = 1;                 //melee attack damage
 
     private float atkpsBase;                                    //base values for bps and targetingrange to calculate upgrades
     private float targetingRangeBase;
+    private int atkDamageBase;
 
     private Transform target;                                   //target enemy
     private float timeUntilFire;                                //time until the next shot is taken
 
     private int level = 1;                                      //current tower level
 
-    private bool isMelee = true;
+    private bool isMelee = true;                                //designate melee towers for path placement
     private void Start()
     {
         //set the base values to turret starting stats
         atkpsBase = atkps;
         targetingRangeBase = targetingRange;
+        atkDamageBase = atkDamage;
 
         //create a listener for the upgrade button
         upgradeButton.onClick.AddListener(Upgrade);
@@ -50,33 +53,32 @@ public class TurretMelee : MonoBehaviour
             return;
         }
 
-//        //rotate tower towards the target enemy
-//        RotateTowardsTarget();
+        //rotate tower towards the target enemy
+        RotateTowardsTarget();
 
         //if target is no longer in range, remove target
         if (!CheckTargetIsInRange())
         {
             target = null;
         }
-        //otherwise shoot at fire
+        //otherwise shoot
         else
         {
             timeUntilFire += Time.deltaTime;
 
             if (timeUntilFire >= 1f / atkps)
             {
-                Shoot();
+                Attack();
                 timeUntilFire = 0f;
             }
         }
     }
     //Shoot bullets
-    private void Shoot()
+    private void Attack()
     {
-        //spawn a bullet, then set its target to the turret's target
-        GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity);
-        Bullet bulletScript = bulletObj.GetComponent<Bullet>();
-        bulletScript.SetTarget(target);
+        //attack the current target
+        target.gameObject.GetComponent<Health>().TakeDamage(atkDamage);
+        timeUntilFire = 0;
     }
 
     //Find a target
@@ -141,7 +143,7 @@ public class TurretMelee : MonoBehaviour
 
         //calculate the new Bullets/Second and tower Range, and set the stats to those.
         atkps = CalculateATKPS();
-        targetingRange = CalculateRange();
+        //targetingRange = CalculateRange();
 
         //close the upgrade UI
         CloseUpgradeUI();

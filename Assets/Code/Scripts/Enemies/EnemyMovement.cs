@@ -12,6 +12,7 @@ public class EnemyMovement : MonoBehaviour
     
     [Header("Attributes")]
     [SerializeField] private float moveSpeed = 2f;
+    [SerializeField] private LayerMask TurretMask;
 
     //Target destination (pulled from the path)
     private Transform target;
@@ -71,5 +72,16 @@ public class EnemyMovement : MonoBehaviour
     public void ResetSpeed()
     {
         moveSpeed = baseSpeed; ;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("Trigger detected with " + collision);
+        UpdateSpeed(0f);
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        ResetSpeed();
     }
 }
