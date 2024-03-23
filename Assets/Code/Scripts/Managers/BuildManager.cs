@@ -30,4 +30,9 @@ public class BuildManager : MonoBehaviour
         selectedTower = _selectedTower;
     }
 
+    public bool IsTowerMelee()
+    {
+        return towers[selectedTower].isMelee;
+    }
+
 }

@@ -26,6 +26,7 @@ public class TurretSlowmo : MonoBehaviour
 
     private float apsBase;                                   //base values for aps and targetingrange to calculate upgrades
     private float targetingRangeBase;
+    private bool isMelee = false;
 
     //Called by Unity at the start of the Scene
     private void Start()
