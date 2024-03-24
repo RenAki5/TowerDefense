@@ -27,4 +27,20 @@ public class Menu : MonoBehaviour
     {
 
     }
+
+    public void TogglePause()
+{
+    isMenuOpen = !isMenuOpen;
+    anim.SetBool("MenuOpen", isMenuOpen);
+
+    if (isMenuOpen)
+    {
+        Time.timeScale = 0f; // Pause the game
+    }
+    else
+    {
+        Time.timeScale = 1f; // Resume the game
+    }
+}
+
 }
