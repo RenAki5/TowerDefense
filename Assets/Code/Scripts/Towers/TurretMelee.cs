@@ -3,39 +3,41 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using UnityEngine.UI;
+using Unity.VisualScripting;
 
-public class Turret : MonoBehaviour
+public class TurretMelee : MonoBehaviour
 {
     //Header and Serialized Field are for the inspector menu in Unity. These values can modified from the Unity Editor without changing the code.
     [Header("References")]
     [SerializeField] private Transform turretRotationPoint;     //rotation point for tower head
     [SerializeField] private LayerMask enemyMask;               //the enemy layer mask
-    [SerializeField] private GameObject bulletPrefab;           //prefab for tower's bullet
-    [SerializeField] private Transform firingPoint;             //firing point for bullets
     [SerializeField] private GameObject upgradeUI;              //upgrade UI menu
     [SerializeField] private Button upgradeButton;              //upgrade button
-    
-    [Header("Attribute")]
-    [SerializeField] private float targetingRange = 5f;         //tower range
-    [SerializeField] private float rotationSpeed = 5f;          //tower rotation speed
-    [SerializeField] private float bps = 1f;                    // Bullets Per Second
-    [SerializeField] private int baseUpgradeCost = 100;         //base cost to upgrade
+    [SerializeField] private Rigidbody2D rb;                    //rigidbody for collision detection
 
-    private float bpsBase;                                      //base values for bps and targetingrange to calculate upgrades
+    [Header("Attribute")]
+    [SerializeField] private float targetingRange = 1f;         //tower range
+    [SerializeField] private float rotationSpeed = 5f;          //tower rotation speed
+    [SerializeField] private float atkps = 0.5f;                  // Attacks Per Second
+    [SerializeField] private int baseUpgradeCost = 100;         //base cost to upgrade
+    [SerializeField] private int atkDamage = 1;                 //melee attack damage
+
+    private float atkpsBase;                                    //base values for bps and targetingrange to calculate upgrades
     private float targetingRangeBase;
+    private int atkDamageBase;
 
     private Transform target;                                   //target enemy
     private float timeUntilFire;                                //time until the next shot is taken
 
     private int level = 1;                                      //current tower level
-    private bool isMelee = false;
 
-    //Called by Unity at the start of the Scene
+    private bool isMelee = true;                                //designate melee towers for path placement
     private void Start()
     {
         //set the base values to turret starting stats
-        bpsBase = bps;
+        atkpsBase = atkps;
         targetingRangeBase = targetingRange;
+        atkDamageBase = atkDamage;
 
         //create a listener for the upgrade button
         upgradeButton.onClick.AddListener(Upgrade);
@@ -58,27 +60,25 @@ public class Turret : MonoBehaviour
         if (!CheckTargetIsInRange())
         {
             target = null;
-        } 
-        //otherwise shoot at fire
+        }
+        //otherwise shoot
         else
         {
             timeUntilFire += Time.deltaTime;
 
-            if (timeUntilFire >= 1f/bps)
+            if (timeUntilFire >= 1f / atkps)
             {
-                Shoot();
+                Attack();
                 timeUntilFire = 0f;
             }
         }
     }
-
     //Shoot bullets
-    private void Shoot()
+    private void Attack()
     {
-        //spawn a bullet, then set its target to the turret's target
-        GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity);
-        Bullet bulletScript = bulletObj.GetComponent<Bullet>();
-        bulletScript.SetTarget(target);
+        //attack the current target
+        target.gameObject.GetComponent<Health>().TakeDamage(atkDamage);
+        timeUntilFire = 0;
     }
 
     //Find a target
@@ -142,12 +142,12 @@ public class Turret : MonoBehaviour
         level++;
 
         //calculate the new Bullets/Second and tower Range, and set the stats to those.
-        bps = CalculateBPS();
-        targetingRange = CalculateRange();
+        atkps = CalculateATKPS();
+        //targetingRange = CalculateRange();
 
         //close the upgrade UI
         CloseUpgradeUI();
-        Debug.Log("New BPS: " + bps);
+        Debug.Log("New ATKPS: " + atkps);
         Debug.Log("New Range: " + targetingRange);
         Debug.Log("New Cost: " + CalculateCost());
     }
@@ -159,9 +159,9 @@ public class Turret : MonoBehaviour
     }
 
     //calculates the bullets/second from upgrades
-    private float CalculateBPS()
+    private float CalculateATKPS()
     {
-        return (bpsBase * Mathf.Pow(level, 0.6f));
+        return (atkpsBase * Mathf.Pow(level, 0.6f));
     }
 
     //calculates the range from upgrades

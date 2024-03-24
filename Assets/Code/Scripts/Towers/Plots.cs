@@ -8,10 +8,12 @@ public class Plots : MonoBehaviour
     [Header("References")]
     [SerializeField] private SpriteRenderer sr;     //sprite renderer
     [SerializeField] private Color hoverColor;      //what color the plot becomes when hovered
+    [SerializeField] private bool isPath;           //used to designate between normal plots and plots on the enemy path
 
     private GameObject towerObj;                    //used to check what tower is built on top
     public Turret turret;                           //used to check what tower is built on top
     public TurretSlowmo turretSlowmo;               //used to check what tower is built on top
+    public TurretMelee turretMelee;                 //used to check what tower type is built
     private Color startColor;                       //starting plot color
 
     //Called by Unity at the start of the Scene
@@ -37,7 +39,7 @@ public class Plots : MonoBehaviour
     {
         //if hovering over the upgrade UI, don't build a tower (to prevent player from accidently building towers on plots while upgrading towers)
         if (UIManager.main.IsHoveringUI()) return;
-        
+
         //if there is a tower on the plot
         if (towerObj != null)
         {
@@ -52,10 +54,29 @@ public class Plots : MonoBehaviour
                 turretSlowmo.OpenUpgradeUI();
                 return;
             }
+            if (turretMelee != null)
+            {
+                turretMelee.OpenUpgradeUI();
+                return;
+            }
         }
+
 
         //grab the currently selected tower
         Tower towerToBuild = BuildManager.main.GetSelectedTower();
+
+        //make sure the tower is melee for a path plot
+        if (isPath && !towerToBuild.isMelee)
+        {
+            Debug.Log("You can only build melee towers here");
+            return;
+        }
+
+        if (!isPath && towerToBuild.isMelee)
+        {
+            Debug.Log("You cannot place Melee towers here");
+            return;
+        }
 
         //make sure the tower can be afforded, if not, do nothing
         if (towerToBuild.cost > LevelManager.main.currency)
@@ -70,6 +91,7 @@ public class Plots : MonoBehaviour
         //build the tower, then set either turret or turretSlowmo with the prefab of built tower
         towerObj = Instantiate(towerToBuild.prefab, transform.position, Quaternion.identity);
         turret = towerObj.GetComponent<Turret>();
-        turretSlowmo = towerObj.GetComponent <TurretSlowmo>();
+        turretSlowmo = towerObj.GetComponent<TurretSlowmo>();
+        turretMelee = towerObj.GetComponent<TurretMelee>();
     }
 }

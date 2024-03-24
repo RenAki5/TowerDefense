@@ -13,7 +13,7 @@ TagManager:
   - UI
   - Enemy
   - Bullet
-  - 
+  - Turrets
   - 
   - 
   - 
@@ -40,6 +40,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Enemies
+    uniqueID: 2490623061
     locked: 0
   - name: Turrets
     uniqueID: 3532914825

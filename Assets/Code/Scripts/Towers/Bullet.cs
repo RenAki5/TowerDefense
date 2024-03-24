@@ -24,7 +24,7 @@ public class Bullet : MonoBehaviour
     //FixedUpdate is basically the same as Update, but called the same number of times per second, regardless of framerate
     private void FixedUpdate()
     {
-        //if there is no target, destroy bullet
+        //if there is no target, destroy bullet (temp fix)
         if (!target)
         {
             Destroy(gameObject);
