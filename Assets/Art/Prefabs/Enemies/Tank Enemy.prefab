@@ -139,9 +139,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 781352190174090658}
   moveSpeed: 1
-  TurretMask:
+  turretMask:
     serializedVersion: 2
     m_Bits: 256
+  atkDamage: 1
+  atkps: 1
 --- !u!114 &-3798866214031195196
 MonoBehaviour:
   m_ObjectHideFlags: 0

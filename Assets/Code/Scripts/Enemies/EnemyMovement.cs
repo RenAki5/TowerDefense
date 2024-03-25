@@ -12,14 +12,22 @@ public class EnemyMovement : MonoBehaviour
     
     [Header("Attributes")]
     [SerializeField] private float moveSpeed = 2f;
-    [SerializeField] private LayerMask TurretMask;
+    [SerializeField] private LayerMask turretMask;
+    [SerializeField] private int atkDamage = 1;
+    [SerializeField] private float atkps = 1f;
 
     //Target destination (pulled from the path)
     private Transform target;
     private int pathIndex = 0;
 
+    //used for attacking
+    private float timeUntilAttack;
+    private GameObject attackTarget;
+
     //used to remember the base movement speed to reset if speed is altered (like by the slowmo tower)
     private float baseSpeed;
+
+    private bool isAttacking = false;
 
     //Called by Unity at the start of the Scene
     private void Start()
@@ -50,6 +58,17 @@ public class EnemyMovement : MonoBehaviour
                 target = LevelManager.main.path[pathIndex];
             }
         }
+        if (isAttacking)
+        {
+            timeUntilAttack += Time.deltaTime;
+
+            if (timeUntilAttack >= 1f / atkps)
+            {
+                Debug.Log("Attacking " + attackTarget);
+                attackTarget.gameObject.GetComponent<Health>().TakeDamage(atkDamage);
+                timeUntilAttack = 0f;
+            }
+        }
     }
 
     //FixedUpdate is basically the same as Update, but called the same number of times per second, regardless of framerate
@@ -76,12 +95,16 @@ public class EnemyMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Trigger detected with " + collision);
+//        Debug.Log("Trigger detected with " + collision);
         UpdateSpeed(0f);
+        isAttacking = true;
+        attackTarget = collision.gameObject;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         ResetSpeed();
+        isAttacking = false;
+        attackTarget = null;
     }
 }
