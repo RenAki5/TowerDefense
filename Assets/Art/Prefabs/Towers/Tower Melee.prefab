@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6304968401918682977}
   - component: {fileID: -4335884121131157386}
   - component: {fileID: -3500157379761783320}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Tower Melee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 796084421527331142}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -186,7 +186,7 @@ GameObject:
   - component: {fileID: 6009190127852348535}
   - component: {fileID: 5509037537684356368}
   - component: {fileID: 4292970847409354468}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: BG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -211,7 +211,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 12468.467}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5509037537684356368
@@ -263,7 +263,7 @@ GameObject:
   - component: {fileID: 1355583930140463239}
   - component: {fileID: 7716713554302994313}
   - component: {fileID: 3417655330250820136}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -400,13 +400,13 @@ GameObject:
   - component: {fileID: 6295459908921612604}
   - component: {fileID: 3123410373324351340}
   - component: {fileID: 2673683790919716123}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: UpgradeUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1524791656842275531
 RectTransform:
   m_ObjectHideFlags: 0
@@ -425,7 +425,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: -0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &4239063078450734501
@@ -511,7 +511,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3151607895870697303}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: RotationPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -545,7 +545,7 @@ GameObject:
   - component: {fileID: 2135299228303744246}
   - component: {fileID: 1858811720983809938}
   - component: {fileID: 6982630863995665216}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Upgrade Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
