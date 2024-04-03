@@ -90,6 +90,7 @@ public class EnemySpawner : MonoBehaviour
         isSpawning = false;
         timeSinceLastSpawn = 0f;
         currentWave++;
+        LevelManager.main.IncreaseRallyCurrency(1); // Increment Rally currency by a fixed amount (e.g., 10)
         StartCoroutine(StartWave());
     }
 
