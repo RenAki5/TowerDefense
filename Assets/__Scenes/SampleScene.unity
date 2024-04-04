@@ -4687,7 +4687,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -300, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 300, y: 0}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &422049041
@@ -11866,7 +11866,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefabs:
   - {fileID: 6258950333163841620, guid: f3427fbf7efa8af4796f060e5ca07b08, type: 3}
-  - {fileID: 6258950333163841620, guid: f3427fbf7efa8af4796f060e5ca07b08, type: 3}
+  - {fileID: 600748518116659014, guid: 1205a862d708080418139d7183e8b11d, type: 3}
   - {fileID: 6258950333163841620, guid: d621a2bf4fb4d8547965cf0435ea967e, type: 3}
   baseEnemies: 8
   enemiesPerSecond: 0.5
