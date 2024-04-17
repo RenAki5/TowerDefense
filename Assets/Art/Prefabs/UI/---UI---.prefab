@@ -574,6 +574,7 @@ RectTransform:
   - {fileID: 3523844008873632243}
   - {fileID: 3523844008573228862}
   - {fileID: 3523844008238956654}
+  - {fileID: 4395976992046133048}
   m_Father: {fileID: 3523844008304160651}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -633,7 +634,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currecnyUI: {fileID: 3523844008573228863}
-  rallyCurrencyUI: {fileID: 0}
+  rallyCurrencyUI: {fileID: 7807431251173947655}
   anim: {fileID: 3523844008205434626}
 --- !u!95 &3523844008205434626
 Animator:
@@ -691,7 +692,7 @@ RectTransform:
   - {fileID: 3523844009628201950}
   - {fileID: 3523844008127552495}
   m_Father: {fileID: 3523844008205434630}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2304,7 +2305,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3523844008205434630}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
