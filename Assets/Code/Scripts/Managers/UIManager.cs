@@ -12,7 +12,7 @@ public class UIManager : MonoBehaviour
     //Called when the script instance is loaded
     private void Awake()
     {
-        main = this;    
+        main = this;
     }
 
     //Set the hovering state for the upgrade UI

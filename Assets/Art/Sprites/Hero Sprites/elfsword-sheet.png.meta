@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c08a119d4f87a754eaff814a2c236c61
+guid: 7d6891c9393857e449fca2da698d204d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -117,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ghost-sheet_0
+      name: elfsword-sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +131,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46aeb945bdee4924da9c62f8b886c28d
-      internalID: -1640783267
+      spriteID: 20dc99b5c46eb324aa92a52c3617df3f
+      internalID: 1700176135
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ghost-sheet_1
+      name: elfsword-sheet_1
       rect:
         serializedVersion: 2
         x: 64
@@ -152,14 +152,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 960fdfe406366fb4dbab19ff925c1e3f
-      internalID: -2079444811
+      spriteID: 1226f838b169aca40a10fed49b4e372a
+      internalID: 203620671
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ghost-sheet_2
+      name: elfsword-sheet_2
       rect:
         serializedVersion: 2
         x: 128
@@ -173,14 +173,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2140b696e6061db4da0b7fae70d64af2
-      internalID: 297161922
+      spriteID: b301e88bf9042d440bca9b78fe620bfc
+      internalID: -98904449
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ghost-sheet_3
+      name: elfsword-sheet_3
       rect:
         serializedVersion: 2
         x: 192
@@ -194,14 +194,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e1ce85c06e4cd4b41a5e03eadab3f63a
-      internalID: 916839520
+      spriteID: 10dfa529329e50c47936bc8c7443fd01
+      internalID: -411972726
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ghost-sheet_4
+      name: elfsword-sheet_4
       rect:
         serializedVersion: 2
         x: 256
@@ -215,8 +215,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db8e2dd70d77dd04aa9a0608337eeab2
-      internalID: -1170098400
+      spriteID: 32325642e5b5b594788c4acfc82bb9b0
+      internalID: 1605837014
       vertices: []
       indices: 
       edges: []
@@ -232,11 +232,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Ghost-sheet_0: -1640783267
-      Ghost-sheet_1: -2079444811
-      Ghost-sheet_2: 297161922
-      Ghost-sheet_3: 916839520
-      Ghost-sheet_4: -1170098400
+      elfsword-sheet_0: 1700176135
+      elfsword-sheet_1: 203620671
+      elfsword-sheet_2: -98904449
+      elfsword-sheet_3: -411972726
+      elfsword-sheet_4: 1605837014
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

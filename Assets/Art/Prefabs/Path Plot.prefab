@@ -12,6 +12,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -2736321244132467569, guid: d55ffa2cf3c464e4898e91a360bbd70b, type: 3}
+      propertyPath: turret
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -2736321244132467569, guid: d55ffa2cf3c464e4898e91a360bbd70b, type: 3}
       propertyPath: hoverColor.a
       value: 1
       objectReference: {fileID: 0}

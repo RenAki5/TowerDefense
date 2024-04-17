@@ -95,7 +95,6 @@ public class EnemyMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-//        Debug.Log("Trigger detected with " + collision);
         UpdateSpeed(0f);
         isAttacking = true;
         attackTarget = collision.gameObject;
