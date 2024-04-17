@@ -6,47 +6,51 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager main;
 
-    //list of all the pathing points for the enemies
     public Transform[] path;
-    //the starting point of the path
     public Transform startpoint;
 
-    //currency for the game
     public int currency;
+    public int rallyCurrency;  // New variable for Rally currency
 
-
-    //Called when the script instance is loaded
     private void Awake()
     {
         main = this;
     }
 
-    //Called by Unity at the start of the Scene
     private void Start()
     {
-        //set the starting currency
         currency = 200;
+        rallyCurrency = 0; // Initialize Rally currency
     }
 
-    //increase the currency
-    public void IncreaseCurrency(int ammount)
+    public void IncreaseCurrency(int amount)
     {
-        currency += ammount;
+        currency += amount;
     }
 
-    //spend the currency
-    public bool SpendCurrency(int ammount)
+    public bool SpendCurrency(int amount)
     {
-        //check that there is enough currency to buy the tower/upgrade
-        if (ammount <= currency)
+        if (amount <= currency)
         {
-            // Buy Item
-            currency -= ammount;
+            currency -= amount;
             return true;
-        } else
+        }
+        else
         {
-            Debug.Log("You do not have enough to purchase this item.");
+            Debug.Log("Not enough currency.");
             return false;
         }
+    }
+
+    // New method to increase Rally currency
+    public void IncreaseRallyCurrency(int amount)
+    {
+        rallyCurrency += amount;
+    }
+
+    // Optionally, create a method to access the Rally currency, if needed
+    public int GetRallyCurrency()
+    {
+        return rallyCurrency;
     }
 }
