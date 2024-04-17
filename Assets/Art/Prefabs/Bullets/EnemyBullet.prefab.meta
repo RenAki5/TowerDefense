@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< Updated upstream:Assets/Art/Prefabs/Bullets/EnemyBullet.prefab.meta
 guid: cb17f6028266fca4592b1393b8acdd8e
+========
+guid: 05e58afe776c38a4a9141994936636ce
+>>>>>>>> Stashed changes:Assets/Art/Prefabs/Enemies/Fast Enemy.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 
