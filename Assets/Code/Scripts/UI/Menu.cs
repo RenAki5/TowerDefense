@@ -15,6 +15,8 @@ public class Menu : MonoBehaviour
     private void OnGUI()
     {
         currecnyUI.text = LevelManager.main.currency.ToString();
+        rallyCurrencyUI.text = LevelManager.main.GetRallyCurrency().ToString();
+
     }
 
     public void ToggleMenu()

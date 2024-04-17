@@ -12,6 +12,7 @@ public class Bullet : MonoBehaviour
     [Header("Attributes")]
     [SerializeField] private float bulletSpeed = 5f;    //bullet travel speed
     [SerializeField] private int bulletDamage = 1;      //damage dealt by each bullet
+    [SerializeField] private string targetTag;          //Script is being reused for both enemies and friendly towers. String must match the Tag on the prefab ("Enemy" or "Tower").
 
     private Transform target;                           //target enemy of the bullet
 
@@ -19,6 +20,12 @@ public class Bullet : MonoBehaviour
     public void SetTarget(Transform _target)
     {
         target = _target;
+    }
+
+    //Set the damage of the bullet, useful for upgrading damage on enemies/towers
+    public void SetDamage(int _bulletDamage)
+    {
+        bulletDamage = _bulletDamage;
     }
 
     //FixedUpdate is basically the same as Update, but called the same number of times per second, regardless of framerate
@@ -54,9 +61,12 @@ public class Bullet : MonoBehaviour
     //what to do on collision
     private void OnCollisionEnter2D(Collision2D other)
     {
-        //deal damage to the enemy collided with
-        other.gameObject.GetComponent<Health>().TakeDamage(bulletDamage);
-        //destroy the bullet
-        Destroy(gameObject);
+        if (other.gameObject.tag == targetTag)
+        {
+            //deal damage to the enemy collided with
+            other.gameObject.GetComponent<Health>().TakeDamage(bulletDamage);
+            //destroy the bullet
+            Destroy(gameObject);
+        }
     }
 }

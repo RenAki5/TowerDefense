@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 6336093149122652342}
   - component: {fileID: 6362473403223526551}
   - component: {fileID: -3798866214031195196}
-  - component: {fileID: -7107100762334095144}
+  - component: {fileID: -3618304655622419847}
   m_Layer: 6
-  m_Name: Tank Enemy
+  m_Name: Fast Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 6258950333163841620}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 8, z: 0}
-  m_LocalScale: {x: 1.22, y: 1.22, z: 1.22}
+  m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: -1804344235
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1803463694, guid: 94ae299a11fb7d743a3d3082a1bae841, type: 3}
+  m_Sprite: {fileID: -1275791687, guid: c310b814e527b8d4ca0767e7984d8b1e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -108,7 +108,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!58 &6336093149122652342
 CircleCollider2D:
@@ -125,7 +125,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.32
+  m_Radius: 0.29
 --- !u!114 &6362473403223526551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,12 +139,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 781352190174090658}
-  moveSpeed: 1
+  moveSpeed: 2.5
   turretMask:
     serializedVersion: 2
     m_Bits: 512
   atkDamage: 1
-  atkps: 1
+  atkps: 1.5
 --- !u!114 &-3798866214031195196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,9 +157,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d5dff4ef6c112c49870b8ebd600ccda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoints: 4
-  currencyWorth: 100
---- !u!95 &-7107100762334095144
+  hitPoints: 2
+  currencyWorth: 50
+--- !u!95 &-3618304655622419847
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -169,7 +169,7 @@ Animator:
   m_GameObject: {fileID: 6258950333163841620}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3b880be40813d1943992b12691a3ca93, type: 2}
+  m_Controller: {fileID: 9100000, guid: 949b8a2d1dfee5e4d9e2e810e66845a6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

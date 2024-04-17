@@ -126,3 +126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sr: {fileID: 1641122920671059789}
   hoverColor: {r: 1, g: 1, b: 1, a: 0.78431374}
+  isPath: 0
+  turret: {fileID: 2959763931579698092, guid: 2e8a281a595aff143843b3e01fa2c779, type: 3}
+  turretSlowmo: {fileID: 0}
+  turretMelee: {fileID: 0}
