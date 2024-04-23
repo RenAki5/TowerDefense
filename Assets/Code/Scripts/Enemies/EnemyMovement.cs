@@ -49,7 +49,14 @@ public class EnemyMovement : MonoBehaviour
             if (pathIndex == LevelManager.main.path.Length)
             {
                 EnemySpawner.onEnemyDestroy.Invoke();
+                LevelManager.main.lives--;
                 Destroy(gameObject);
+                if (LevelManager.main.lives == 0)
+                {
+                    LevelManager.main.gameOver.SetActive(true);
+                    Time.timeScale = 0;
+                }
+                
                 return;
             } 
             //Otherwise, set the target as the current path index

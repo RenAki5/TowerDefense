@@ -9,6 +9,9 @@ public class Menu : MonoBehaviour
     [Header("References")]
     [SerializeField] TextMeshProUGUI currecnyUI;
     [SerializeField] TextMeshProUGUI rallyCurrencyUI;
+    [SerializeField] TextMeshProUGUI livesUI;
+    
+
     [SerializeField] Animator anim;
 
     private bool isMenuOpen = true;
@@ -17,6 +20,9 @@ public class Menu : MonoBehaviour
     {
         currecnyUI.text = "Gold: " + LevelManager.main.currency.ToString();
         rallyCurrencyUI.text = "Rally: " + LevelManager.main.GetRallyCurrency().ToString();
+        livesUI.text = "Lives: " + LevelManager.main.lives.ToString();
+        
+
     }
 
     public void ToggleMenu()

@@ -53,8 +53,13 @@ public class RangedEnemy : MonoBehaviour
             if (pathIndex == LevelManager.main.path.Length)
             {
                 EnemySpawner.onEnemyDestroy.Invoke();
+                LevelManager.main.lives--;
                 Destroy(gameObject);
-                return;
+                if (LevelManager.main.lives == 0)
+                {
+                    LevelManager.main.gameOver.SetActive(true);
+                    Time.timeScale = 0;
+                }
             }
             //Otherwise, set the target as the current path index
             else
