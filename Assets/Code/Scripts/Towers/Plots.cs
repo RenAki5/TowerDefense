@@ -83,10 +83,18 @@ public class Plots : MonoBehaviour
         {
             Debug.Log("You can't afford this tower");
             return;
+
+        }
+        if (towerToBuild.rally > LevelManager.main.rallyCurrency)
+        {
+            Debug.Log("You can't afford this tower");
+            return;
         }
 
         //spend the currency for the tower
         LevelManager.main.SpendCurrency(towerToBuild.cost);
+        LevelManager.main.SpendRally(towerToBuild.rally);
+
 
         //build the tower, then set either turret or turretSlowmo with the prefab of built tower
         towerObj = Instantiate(towerToBuild.prefab, transform.position, Quaternion.identity);

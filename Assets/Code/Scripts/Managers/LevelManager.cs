@@ -11,6 +11,8 @@ public class LevelManager : MonoBehaviour
 
     public int currency;
     public int rallyCurrency;  // New variable for Rally currency
+    public int lives;
+    public GameObject gameOver;
 
     private void Awake()
     {
@@ -21,6 +23,8 @@ public class LevelManager : MonoBehaviour
     {
         currency = 200;
         rallyCurrency = 0; // Initialize Rally currency
+        lives = 3;
+        gameOver.SetActive(false);
     }
 
     public void IncreaseCurrency(int amount)
@@ -35,11 +39,28 @@ public class LevelManager : MonoBehaviour
             currency -= amount;
             return true;
         }
+        
         else
         {
             Debug.Log("Not enough currency.");
             return false;
         }
+
+    }
+    public bool SpendRally(int amount)
+    {
+        if (amount <= rallyCurrency)
+        {
+            rallyCurrency -= amount;
+            return true;
+        }
+
+        else
+        {
+            Debug.Log("Not enough currency.");
+            return false;
+        }
+
     }
 
     // New method to increase Rally currency
