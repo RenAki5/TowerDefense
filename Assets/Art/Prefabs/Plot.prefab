@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1641122920671059789}
   - component: {fileID: 1190226751129925396}
   - component: {fileID: -2736321244132467569}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Plot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 5369358766233789207}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_LocalScale: {x: 3.1500003, y: 3.1500003, z: 3.1500003}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -75,8 +75,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.2509804}
+  m_Sprite: {fileID: 1073620996, guid: 2eed7bf91e1d16a4d9cf4b61adc642ca, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -103,14 +103,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.32, y: 0.32}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.32, y: 0.32}
   m_EdgeRadius: 0
 --- !u!114 &-2736321244132467569
 MonoBehaviour:
@@ -127,6 +127,6 @@ MonoBehaviour:
   sr: {fileID: 1641122920671059789}
   hoverColor: {r: 1, g: 1, b: 1, a: 0.78431374}
   isPath: 0
-  turret: {fileID: 2959763931579698092, guid: 2e8a281a595aff143843b3e01fa2c779, type: 3}
+  turret: {fileID: 0}
   turretSlowmo: {fileID: 0}
   turretMelee: {fileID: 0}
