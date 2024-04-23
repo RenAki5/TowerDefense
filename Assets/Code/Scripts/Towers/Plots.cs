@@ -93,7 +93,7 @@ public class Plots : MonoBehaviour
 
         //spend the currency for the tower
         LevelManager.main.SpendCurrency(towerToBuild.cost);
-        LevelManager.main.SpendRally(towerToBuild.rally);
+        //LevelManager.main.SpendRally(towerToBuild.rally);
 
 
         //build the tower, then set either turret or turretSlowmo with the prefab of built tower
